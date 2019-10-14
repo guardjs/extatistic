@@ -1,6 +1,6 @@
 {
   "name": "extatistic",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "The NPM package to perform statistical models on any text and extract specific features",
   "main": "index.js",
   "scripts": {
