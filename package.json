@@ -1,0 +1,27 @@
+{
+  "name": "npmextatistic",
+  "version": "0.0.2",
+  "description": "The NPM package to perform statistical models on any text and extract specific features",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guardjs/npmExtatistic.git"
+  },
+  "keywords": [
+    "statistic",
+    "language",
+    "analysis",
+    "textparser",
+    "parser",
+    "wordparser"
+  ],
+  "author": "easa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guardjs/npmExtatistic/issues"
+  },
+  "homepage": "https://github.com/guardjs/npmExtatistic#readme"
+}
