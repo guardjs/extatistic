@@ -5,13 +5,14 @@ V 1.0.3
 This app extracts features from source ''code'' files.  
 This project is part of the [Guardjs](https://guardjs.github.io) organization.   
 **Github repository: [npmExtatistic](https://github.com/guardjs/npmExtatistic).**
-
-This application has a command line interface thanks to "yargs".  
-Simply extacts features from an string and save them as a "csv" file.  
-It is for getting these specific features from js files, but thanks to beautiful architecture of this app and it's designer (me), it has the capability to easily reduce or increase a feature model to the feature set. 
+It has the capability to easily reduce or increase a feature model to the feature set. Just try to change it on github. It's so easy.
 
 ## Usage   
-Just call functions :)
+Just call it :)   
+3 function it has :  
+* features list  
+* features total count
+* extract features # using models (in folder "syntax")
 
 # Feature set
 Each feature is a file contains a single function that calls on string. You can easily add or remove these functions!
