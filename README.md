@@ -1,4 +1,7 @@
 # extatistic
+
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/guardjs/extatistic/Node%20CI?style=flat-square)](https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Node+CI%22)
+
 The NPM package to perform statistical models on any text and extract specific features
 
 V 1.0.3   
