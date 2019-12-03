@@ -1,6 +1,6 @@
 {
   "name": "extatistic",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The NPM package to perform statistical models on any text and extract specific features",
   "main": "index.js",
   "scripts": {
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/guardjs/npmExtatistic/issues"
   },
-  "homepage": "https://github.com/guardjs/npmExtatistic#readme"
+  "homepage": "https://github.com/guardjs/npmExtatistic#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@guardjs"
+  }
 }
