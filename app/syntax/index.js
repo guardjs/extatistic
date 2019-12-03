@@ -7,10 +7,10 @@ var app = rgxFeatures()
 /**
  * folders to look for feature extraction function
  */
-load('.')
+load('')
 
 function load(folder) {
-	var files = fs.readdirSync(__dirname + '\\' + folder)
+	var files = fs.readdirSync(__dirname + '/' + folder)
 	if (!files) throw new Error(err)
 	files.forEach(file => {
 		var featureName = app[file] ? (folder + file) : file
