@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/guardjs/npmExtatistic/issues"
   },
-  "homepage": "https://github.com/guardjs/npmExtatistic#readme"
+  "homepage": "https://github.com/guardjs/npmExtatistic#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
 }
