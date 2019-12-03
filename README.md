@@ -3,11 +3,13 @@
 
 The NPM package to perform statistical models on any text and extract specific features
 
-V 1.0.3    
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/guardjs/extatistic?color=%23333&label=%E2%80%8C&logo=github&logoColor=%23b5b5b5&style=social)](#)
+
 This app extracts features from string.   
 This project is part of the [Guardjs](https://guardjs.github.io) organization.   
-**Github repository: [npmExtatistic](https://github.com/guardjs/extatistic).**
-It has the capability to easily reduce or increase a feature model to the feature set. Just try to change it on github. It's so easy.
+**Github repository: [extatistic](https://github.com/guardjs/extatistic).**
+It has the capability to easily reduce or increase a feature model to the feature set. Just try to change it on github. It's so easy.    
+Dynamic features will add on version 1.2.0!
 
 ## Usage   
 Just call it :)   

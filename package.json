@@ -23,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/guardjs/npmExtatistic/issues"
   },
-  "homepage": "https://github.com/guardjs/npmExtatistic#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@guardjs"
-  }
+  "homepage": "https://github.com/guardjs/npmExtatistic#readme"
 }
