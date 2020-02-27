@@ -4,12 +4,6 @@
   "description": "Perform statistical models on any text and extract specific features",
   "main": "index.js",
   "bin": "./command/index.js",
-  "scripts": {
-    "test": "cross-env ENV=test jest",
-    "build": "babel . --out-dir dist",
-    "prepublishOnly": "npm run build && cp -r ./package/* ./dist/ && cd dist",
-    "postpublish": "git clean -fd"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guardjs/extatistic.git"
@@ -28,14 +22,6 @@
     "url": "https://github.com/guardjs/extatistic/issues"
   },
   "homepage": "https://github.com/guardjs/extatistic#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "babel-jest": "^25.1.0",
-    "cross-env": "^7.0.0",
-    "jest": "^24.9.0"
-  },
   "dependencies": {
     "yargs": "^15.1.0"
   }
