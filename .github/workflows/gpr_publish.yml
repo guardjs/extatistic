@@ -1,10 +1,20 @@
 name: Publish GPR Package
 
 on:
-  release:
-    types: [created]
+  push:
     branches:
-      - develop
+      - master
+  pull_request:
+    branches:
+      - master
+  # Also trigger on page_build, as well as release created events
+  page_build:
+  release: # The release event is not triggered for draft releases
+    types:
+      - published
+      - created
+      - edited
+      - prereleased
 
 jobs:
   build:
@@ -18,7 +28,6 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: cp -r ./package/. ./dist/
-      - run: cd dist
 
   publish-gpr:
     needs: build
@@ -30,6 +39,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: ${{GITHUB_REPOSITORY}}
+      - run: cd dist
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

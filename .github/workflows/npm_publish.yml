@@ -2,9 +2,7 @@ name: Publish NPM Package
 
 on:
   release:
-    types: [published]
-    branches:
-      - master
+    types: [created]
 
 jobs:
   build:
@@ -18,7 +16,6 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: cp -r ./package/. ./dist/
-      - run: cd dist
 
   publish-npm:
     needs: build
@@ -29,6 +26,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - run: cd dist
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
