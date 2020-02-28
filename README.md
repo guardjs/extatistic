@@ -1,6 +1,6 @@
 # extatistic
 
-[![Test][test]][testURL] [![Build][build]][buildULR] [![Publish GPR][gpr]][gprULR] [![Publish NPM][npm]][npmURL] [![GitHub package.json version][version]](#extatistic)
+![Test][test] ![Build][build] ![Publish GPR][gpr] ![Publish NPM][npm] ![version][version]
 
 The NPM package to perform statistical models on any text and extract specific features. Link to npm package: [npm/extatistic](https://www.npmjs.com/package/extatistic)
 
@@ -9,6 +9,8 @@ This project is part of the [Guardjs](https://guardjs.github.io) organization th
 It has the capability to easily reduce or increase a feature model to the feature set.
 
 ## Usage
+
+There's a sample code to show how to use the code and how it works:
 
 ```js
 const {
@@ -33,6 +35,8 @@ console.log(getListOfFeaturesName())                // newFeature, anotherFeatur
 console.log(getNumberOfFeatures())                  // 2
 console.log(extractfeaturesRaw('a sample string'))  // 15, 7.5
 ```
+
+The API:
 
 | function              | params     | returns     | description                                  |
 |:----------------------|:-----------|:------------|:---------------------------------------------|

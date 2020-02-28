@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: 'guardjs' #${{GITHUB_REPOSITORY}}
+          scope: ${{GITHUB_REPOSITORY}}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
