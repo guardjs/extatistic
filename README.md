@@ -1,12 +1,8 @@
 # extatistic  
 
-[![build workflow](https://github.com/guardjs/extatistic/workflows/Works%20on%20node%208,%2010,%2012/badge.svg)](https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Works+on+node+8,+10,+12%22)
+[![Test][test]]([testURL]) [![Build][build]]([buildULR]) [![GPR][gpr]]([gprULR]) [![NPM Publish][npm]]([npmURL]) [![GitHub package.json version][version]](#extatistic)
 
-[![build workflow](https://github.com/guardjs/extatistic/workflows/Publish%20NPM%20Package/badge.svg)](https://www.npmjs.com/package/extatistic)
-
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/guardjs/extatistic?color=%23333&label=%E2%80%8C&logo=github&logoColor=%23b5b5b5&style=social)](#extatistic)
-
-The NPM package to perform statistical models on any text and extract specific features
+The NPM package to perform statistical models on any text and extract specific features. Link to npm package: [npm/extatistic](https://www.npmjs.com/package/extatistic)
 
 This app extracts features from string.  
 This project is part of the [Guardjs](https://guardjs.github.io) organization.  
@@ -74,3 +70,17 @@ Don't hesitate to contact me about this project
 [me on github](https://github.com/easa)  
 [email me](mailto:easanodehi@gmail.com)  
 [me on telegram (fast way)](https://t.me/eisanodehi)  
+
+[test]: https://github.com/guardjs/extatistic/workflows/Build%2010.x/badge.svg
+[testURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Build+10.x%22
+
+[build]: https://github.com/guardjs/extatistic/workflows/Build%2010.x/badge.svg
+[buildURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Build+10.x%22
+
+[gpr]: https://github.com/guardjs/extatistic/workflows/Publish%20GPR%20Package/badge.svg
+[gprURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Publish+GPR+Package%22
+
+[npm]: https://github.com/guardjs/extatistic/workflows/Publish%20NPM%20Package/badge.svg
+[npmURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Publish+NPM+Package%22
+
+[version]: https://img.shields.io/github/package-json/v/guardjs/extatistic?color=%23333&label=%E2%80%8C&logo=github&logoColor=%23b5b5b5&style=social

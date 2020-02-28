@@ -1,4 +1,4 @@
-name: Works on node 8, 10, 12
+name: Jest 10.x
 
 on: [push]
 
@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -20,7 +20,6 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm ci
-        npm run build --if-present
         npm test
       env:
         CI: true
