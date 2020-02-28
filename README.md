@@ -1,78 +1,69 @@
-# extatistic  
+# extatistic
 
-[![Test][test]]([testURL]) [![Build][build]]([buildULR]) [![GPR][gpr]]([gprULR]) [![NPM Publish][npm]]([npmURL]) [![GitHub package.json version][version]](#extatistic)
+[![Test][test]][testURL] [![Build][build]][buildULR] [![Publish GPR][gpr]][gprULR] [![Publish NPM][npm]][npmURL] [![GitHub package.json version][version]](#extatistic)
 
 The NPM package to perform statistical models on any text and extract specific features. Link to npm package: [npm/extatistic](https://www.npmjs.com/package/extatistic)
 
-This app extracts features from string.  
-This project is part of the [Guardjs](https://guardjs.github.io) organization.  
-**Github repository: [extatistic](https://github.com/guardjs/extatistic).**
-It has the capability to easily reduce or increase a feature model to the feature set. Just try to change it on github. It's so easy.  
-Dynamic features will add on version 1.2.0!
+This app extracts features from a source string.  
+This project is part of the [Guardjs](https://guardjs.github.io) organization that used to extract features of normal javascript source code. **Github repository: [extatistic](https://github.com/guardjs/extatistic).**
+It has the capability to easily reduce or increase a feature model to the feature set.
 
 ## Usage
 
-Just call it :)  
-3 function it has :
+```js
+const {
+    registerAFeature,       // register a feature in to feature list
+    registerFeaturesList,   // register a list of features to feature list
+    getListOfFeaturesName,  // return a list of all registered features
+    getNumberOfFeatures,    // return total number of registerd features
+    extractfeaturesRaw,     // calculate and return a raw of features value
+} = require('extatistic')
 
-* features list
-* features total count
-* extract features # using models (in folder "syntax")
+const newFeature = sourceString => sourceString.length
+registerAFeature(newFeature)
 
-## Default feature set
+console.log(getListOfFeaturesName())                // newFeature
+console.log(getNumberOfFeatures())                  // 1
+console.log(extractfeaturesRaw('a sample string'))  // 15
 
-Each feature is a file contains a single function that calls on string. You can easily add or remove these functions!
-Attention: the order of features are by the order of files of feature-model that the app uses and the order of features here isn't a default order! THERE'S NOT ANY ORDER  
+const anotherFeature = sourceString => sourceString.length / 2
+registerAFeature(newFeature)
 
-| no. | feature      | description                          |
-|:---:|--------------|--------------------------------------|
-|  1  | of           | The number of 'of'                   |
-|  2  | the          | The number of 'the'                  |
-|  3  | space        | The number of blank spaces           |
-|  4  | hexvalue     | The number of hex values             |
-|  5  | utfvalue     | The number of utf values             |
-|  6  | words        | The number of all words              |
-|  7  | keywords     | The number of special keywords       |
-|  8  | chars        | The number of characters             |
-|  9  | keyOnWords   | The ratio between keywords and words |
-| 10  | wordPerline  | The entropy of the script as a whole |
-| 11  | longestWord  | The length of the longest word       |
-| 12  | shortestWord | The length of the shortest word      |
-| 13  | avg          | Average length of words              |
+console.log(getListOfFeaturesName())                // newFeature, anotherFeature
+console.log(getNumberOfFeatures())                  // 2
+console.log(extractfeaturesRaw('a sample string'))  // 15, 7.5
+```
+
+| function              | params     | returns     | description                                  |
+|:----------------------|:-----------|:------------|:---------------------------------------------|
+| getListOfFeaturesName |            | `string`    | return a list of all registered features     |
+| getNumberOfFeatures   |            | `number`    | return total number of registerd features    |
+| extractfeaturesRaw    | `string`   | `string`    | calculate and return a raw of features value |
+| registerAFeature      | `function` | `undefined` | register a feature in to feature list        |
+| registerFeaturesList  | `object`   | `undefined` | register a list of features to feature list  |
+
+### Anatomy of project
+
+There's Babel used to build this package, Jest used for test,
+ yargs for command line application and fs uesd for manage files.
 
 ## Contribution
 
 ### How to help with develop
 
-Fork, make a change, request a pull!
+1. Fork
+2. Make a change
+3. Request a merge!
+4. And for maintaining this project, if anyone are available and intrested please contact me to be a maintainer!
 
-### To maintaining
-
-Yeap if anyone are available and intrested please contact me to be a maintainer!
-
-### Anatomy of project
-
-`app` folder contains feature-models.
-
-```md
-.
-+-- - app  
-|   +-- - syntax  
-    |   +-- index.js # this will handle all suntax features  
-    |   +-- + rgxPatternCounter # the models inside this folder are simple regex functions  
-    |   +-- + common # function uses in many models  
-+-- index.js # simple order of functions for customization
-```
-
-## Contact me
+## Contact us
 
 Don't hesitate to contact me about this project  
 [me on github](https://github.com/easa)  
-[email me](mailto:easanodehi@gmail.com)  
-[me on telegram (fast way)](https://t.me/eisanodehi)  
+[me on telegram](https://t.me/eisanodehi)  
 
-[test]: https://github.com/guardjs/extatistic/workflows/Build%2010.x/badge.svg
-[testURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Build+10.x%22
+[test]: https://github.com/guardjs/extatistic/workflows/Jest%2010.x/badge.svg
+[testURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Jest+10.x%22
 
 [build]: https://github.com/guardjs/extatistic/workflows/Build%2010.x/badge.svg
 [buildURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Build+10.x%22

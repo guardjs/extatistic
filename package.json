@@ -7,7 +7,6 @@
   "scripts": {
     "test": "cross-env ENV=test jest",
     "build": "babel . --out-dir dist",
-    "prepublishOnly": "npm run build && cp -r ./package/. ./dist/ && cd dist",
     "postpublish": "git clean -fd"
   },
   "repository": {
