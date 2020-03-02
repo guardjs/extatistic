@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          # scope: guardjs
+          scope: guardjs
       - name: Publish GPR
         # run: cd dist && npm publish
         run: npm publish
