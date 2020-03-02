@@ -30,7 +30,7 @@ jobs:
       - run: npm test
       - run: npm run build
       # - run: cp -r ./package/. ./dist/
-      - name: copy static files to ./dist/
+      - name: Copy static files to ./dist/
         run: cp -r ./package.json ./dist/ && cp -r ./LICENSE ./dist/ && cp -r ./README.md ./dist/ 
 
   publish-gpr:
@@ -43,7 +43,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           # scope: guardjs
-      - name: publish GPR
+      - name: Publish GPR
         run: cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
