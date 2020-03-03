@@ -19,20 +19,6 @@ on:
       - prereleased
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-      # - run: cp -r ./package/. ./dist/
-      - name: Copy static files to ./dist/
-        run: cp -r ./package.json ./dist/ && cp -r ./LICENSE ./dist/ && cp -r ./README.md ./dist/ 
-
   publish-gpr:
     needs: build
     runs-on: ubuntu-latest
@@ -43,8 +29,12 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: guardjs
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Copy static files to ./dist/
+        run: cp -r ./package.json ./dist/ && cp -r ./LICENSE ./dist/ && cp -r ./README.md ./dist/ 
       - name: Publish GPR
-        # run: cd dist && npm publish
-        run: npm publish
+        run: cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
