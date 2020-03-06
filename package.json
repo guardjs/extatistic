@@ -3,7 +3,9 @@
   "version": "1.3.3",
   "description": "Perform statistical models on any text and extract specific features",
   "main": "index.js",
-  "bin": "bin/cli.js",
+  "bin": {
+    "extract": "bin/cli.js"
+  },
   "scripts": {
     "test": "cross-env ENV=test jest",
     "build": "babel . --out-dir dist",

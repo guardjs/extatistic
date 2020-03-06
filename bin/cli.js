@@ -1,3 +1,6 @@
+#! /usr/bin/env node
+console.log("extatistic - extract")
+
 var app = require('../syntaxFeatures')
 var filehandler = require('../fileHandler')
 
