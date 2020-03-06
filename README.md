@@ -1,6 +1,6 @@
 # extatistic
 
-![Test][test] ![Build][build] ![Publish GPR][gpr] ![Publish NPM][npm] ![version][version]
+[![Test][test]][testURL] [![Build][build]][buildURL] [![Publish GPR][gpr]][gprURL] [![Publish NPM][npm]][npmURL] ![version][version]
 
 The NPM package to perform statistical models on any text and extract specific features. Link to npm package: [npm/extatistic](https://www.npmjs.com/package/extatistic)
 
@@ -21,15 +21,15 @@ const {
     extractfeaturesRaw,     // calculate and return a raw of features value
 } = require('extatistic')
 
-const newFeature = sourceString => sourceString.length
+const newFeature = sourceString => sourceString.length || 0
 registerAFeature(newFeature)
 
 console.log(getListOfFeaturesName())                // newFeature
 console.log(getNumberOfFeatures())                  // 1
 console.log(extractfeaturesRaw('a sample string'))  // 15
 
-const anotherFeature = sourceString => sourceString.length / 2
-registerAFeature(newFeature)
+const anotherFeature = sourceString => (sourceString.length / 2) || 0
+registerAFeature(anotherFeature)
 
 console.log(getListOfFeaturesName())                // newFeature, anotherFeature
 console.log(getNumberOfFeatures())                  // 2
