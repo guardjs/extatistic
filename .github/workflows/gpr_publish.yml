@@ -26,8 +26,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: guardjs
+      - run: str="$(<./package.json)"
+      - run: str1="}[\s\n\r]*}"
+      - run: str2="},"publishConfig":{"registry":"https://npm.pkg.github.com/@guardjs"}}"
+      - run: echo ${str/str1/str2} > ./package.json
+      - run: cat "./package.json"
       - run: npm ci
       - run: npm test
       - run: npm run build
