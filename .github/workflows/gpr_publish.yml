@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 12
       - run: str="$(<./package.json)"
-      - run: '}$ s/.$//' <<< $str
+      - run: truncate -s-1 str
       - run: str2="\"publishConfig\":{\"registry\":\"https://npm.pkg.github.com/@guardjs\"}"
       - run: echo ,$str$str2} > ./package.json
       - run: cat "./package.json"
