@@ -7,7 +7,7 @@ require('yargs')
     argv.file = filehandler
     return argv
   })
-  .commandDir('./command/')
+  .commandDir('./cmd/')
   .demandCommand()
   .help()
   .argv

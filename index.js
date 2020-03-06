@@ -1,8 +1,8 @@
 // Developed by easa
 
-import someFeatures from './syntaxFeatures'
+// import someFeatures from './syntaxFeatures'
 import registerFeature from './lib/registerFeature'
-const featuresList = someFeatures
+const featuresList = {}
 const featureNames = Object.keys(featuresList)
 
 /**
