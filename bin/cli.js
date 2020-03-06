@@ -1,11 +1,13 @@
 #! /usr/bin/env node
 console.log("extatistic - extract")
 
-var app = require('../syntaxFeatures')
-var filehandler = require('../fileHandler')
+import * as fs from 'fs'
+import app from '../syntaxFeatures'
+import filehandler from '../fileHandler'
 
 require('yargs')
   .middleware(argv => {
+    argv.fs = fs
     argv.app = app
     argv.file = filehandler
     return argv
