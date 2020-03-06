@@ -26,16 +26,22 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: str="$(<./package.json)"
-      - run: echo $str
-      - run: truncate -s-1 ./package.json
-      - run: echo ",\"publishConfig\":{\"registry\":\"https://npm.pkg.github.com/@guardjs\"}}" >> ./package.json
-      - run: cat "./package.json"
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-      - name: Copy static files to ./dist/
+      - name: Set Registry to Package.json
+        run: |
+          truncate -s-1 ./package.json
+          echo ",\"publishConfig\":{\"registry\":\"https://npm.pkg.github.com/@guardjs\"}}" >> ./package.json
+          cat "./package.json"
+      - name: Test & Build
+        run: |
+          npm ci
+          npm test
+          npm run build
+      - name: Copy Static Files to ./dist/
         run: cp -r ./package.json ./dist/ && cp -r ./LICENSE ./dist/ && cp -r ./README.md ./dist/ 
+      - name: Set GPR Configs
+        run: |
+          npm config set //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+          npm config list
       - name: Publish GPR
         run: cd dist && npm publish
         env:
