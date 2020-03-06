@@ -1,6 +1,6 @@
 
 
-import fs from 'fs'
+import * as fs from 'fs'
 
 exports.command = ['create-feature']
 exports.desc = 'create a feature file'
