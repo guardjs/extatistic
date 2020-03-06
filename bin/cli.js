@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 console.log("extatistic - extract")
 
-import * as fs from 'fs'
+import fs from 'fs'
 import app from '../syntaxFeatures'
 import filehandler from '../fileHandler'
 
