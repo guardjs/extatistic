@@ -1,9 +1,9 @@
-name: Jest 10.x
+name: Test 10.x
 
 on: [push]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 

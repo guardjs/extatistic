@@ -66,8 +66,8 @@ Don't hesitate to contact me about this project
 [me on github](https://github.com/easa)  
 [me on telegram](https://t.me/eisanodehi)  
 
-[test]: https://github.com/guardjs/extatistic/workflows/Jest%2010.x/badge.svg
-[testURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Jest+10.x%22
+[test]: https://github.com/guardjs/extatistic/workflows/Test%2010.x/badge.svg
+[testURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Test+10.x%22
 
 [build]: https://github.com/guardjs/extatistic/workflows/Build%2010.x/badge.svg
 [buildURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Build+10.x%22
