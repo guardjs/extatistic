@@ -1,13 +1,11 @@
 
 import { execFile as exec } from 'child_process';
 
-test('should start with offset [--from, -f]', async done => {
-  jest.mock('fs')
-  jest.mock('../syntaxFeatures')
-  jest.mock('../fileHandler')
+// it's just a unit-test to see if yargs is running and cli is working
+test('should start and show version', async done => {
   await exec('node', ['./bin/cli', '--version'], (error, stdout) => {
     if (error) { throw error }
-    console.log(stdout)
+    console.log(`--version ${stdout}`.replace(/\n/g, ''))
     done()
   })
 })

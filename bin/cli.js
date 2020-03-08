@@ -1,15 +1,13 @@
 #! /usr/bin/env node
-console.log("extatistic - extract")
 
-// import fs from 'fs'
-// import app from '../syntaxFeatures'
-// import filehandler from '../fileHandler'
-
+// FIXME: Because the ES6 module are not working on ---
+// Jest subprocess-cli test, then on CLI we're using common.js format
+const featureExtractorHandler = require('../extractor')
+const filehandler = require('../fileHandler')
 require('yargs')
   .middleware(argv => {
-    argv.fs = {} // fs
-    argv.app = {} // app
-    argv.file = {} // filehandler
+    argv.app = featureExtractorHandler
+    argv.file = filehandler
     return argv
   })
   .commandDir('./cmd/')

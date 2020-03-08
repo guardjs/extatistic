@@ -1,7 +1,7 @@
 
 
-var rgxmatch = require('../common/exRgxPatt')
-var features = require('./patterns')
+import rgxmatch from '../common/exRgxPatt'
+import features from './patterns'
 
 function app(str) {
   var result = {}

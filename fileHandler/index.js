@@ -1,4 +1,3 @@
-const fs = require('fs')
 
 function onFiles(callback) {
   if (typeof callback !== 'function') return void 0
