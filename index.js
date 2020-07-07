@@ -1,22 +1,29 @@
 // Developed by easa
 
 // import someFeatures from './syntaxFeatures'
-import registerFeature from './lib/registerFeature'
+import registerFeature from './lib/register/function/registerFeature'
+import errorMessages from './lib/common/errorMessages'
 const featuresList = {}
 const featureNames = Object.keys(featuresList)
+const nameFeatureRecursive = (name, number = 1) => {
+  const tempname = `${name}${number}`
+  if (typeof featuresList[tempname] === 'undefined')
+    return tempname
+  return nameFeatureRecursive(name, number + 1)
+}
 
 /**
- * Returns the list of names of features in feature-set
+ * @returns List of the names of features in the feature-set
  */
 export const getListOfFeaturesName = () => featureNames.reduce((res, name) => res += ', ' + name)
 
 /**
- * Returns the length of feature-set (the count of features)
+ * @returns Number of registered features in the feature-set
  */
 export const getNumberOfFeatures = () => featureNames.length
 
 /**
- * Returns a raw of calculated features that are listed in feature-set
+ * @returns Raw of calculated features that are listed in feature-set
  * @param {string} inputString source string [code-string, regular-string]
  */
 export const extractfeaturesRaw = inputString => featureNames.reduce((res, model) =>
@@ -27,10 +34,17 @@ export const extractfeaturesRaw = inputString => featureNames.reduce((res, model
   * Add a feature-model to set of features to calculate them on demand
   * @param {function} featureModel a function that caclulates a feature (source-string, token-number)
  */
-export const registerAFeature = featureModel => { registerFeature(featuresList, featureModel) }
+export const registerAFeature = featureModel => {
+  if (typeof featureModel.name !== 'string')
+    throw new Error(errorMessages['anonymous function'])
+  const name = nameFeatureRecursive(featureModel.name)
+  featuresList[name](registerFeature(featureModel))
+}
 
 /** 
   * Add a list of feature-models to set of features to calculate them on demand
   * @param {array} featureModelsList a list of features that
 */
-export const registerFeaturesList = featureModelsList => { registerFeature(featuresList, featureModelsList) }
+export const registerFeaturesList = featureModelsList => {
+  featureModelsList.forEach(fm => { registerFeature(featuresList, fm) })
+}

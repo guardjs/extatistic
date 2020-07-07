@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>extatistic</h1>
+<p><a href="https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Test+10.x%22"><img src="https://github.com/guardjs/extatistic/workflows/Test%2010.x/badge.svg" alt="Test"></a> <a href="https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Build+10.x%22"><img src="https://github.com/guardjs/extatistic/workflows/Build%2010.x/badge.svg" alt="Build"></a> <a href="https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Publish+GPR+Package%22"><img src="https://github.com/guardjs/extatistic/workflows/Publish%20GPR%20Package/badge.svg" alt="Publish GPR"></a> <a href="https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Publish+NPM+Package%22"><img src="https://github.com/guardjs/extatistic/workflows/Publish%20NPM%20Package/badge.svg" alt="Publish NPM"></a> <img src="https://img.shields.io/github/package-json/v/guardjs/extatistic?color=%23333&amp;label=%E2%80%8C&amp;logo=github&amp;logoColor=%23b5b5b5&amp;style=social" alt="version"></p>
+<p>The NPM package to perform statistical models on any text and extract specific features. Link to npm package: <a href="https://www.npmjs.com/package/extatistic">npm/extatistic</a></p>
+<p>This app extracts features from a source string.<br>
+This project is part of the <a href="https://guardjs.github.io">Guardjs</a> organization that used to extract features of normal javascript source code. <strong>Github repository: <a href="https://github.com/guardjs/extatistic">extatistic</a>.</strong>
+It has the capability to easily reduce or increase a feature model to the feature set.</p>
+<h2>Usage</h2>
+<p>There's a sample code to show how to use the code and how it works:</p>
+<pre class="prettyprint source lang-js"><code>const {
+    registerAFeature,       // register a feature in to feature list
+    registerFeaturesList,   // register a list of features to feature list
+    getListOfFeaturesName,  // return a list of all registered features
+    getNumberOfFeatures,    // return total number of registerd features
+    extractfeaturesRaw,     // calculate and return a raw of features value
+} = require('extatistic')
+
+const newFeature = sourceString => sourceString.length || 0
+registerAFeature(newFeature)
+
+console.log(getListOfFeaturesName())                // newFeature
+console.log(getNumberOfFeatures())                  // 1
+console.log(extractfeaturesRaw('a sample string'))  // 15
+
+const anotherFeature = sourceString => (sourceString.length / 2) || 0
+registerAFeature(anotherFeature)
+
+console.log(getListOfFeaturesName())                // newFeature, anotherFeature
+console.log(getNumberOfFeatures())                  // 2
+console.log(extractfeaturesRaw('a sample string'))  // 15, 7.5
+</code></pre>
+<p>The API:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">function</th>
+<th style="text-align:left">params</th>
+<th style="text-align:left">returns</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">getListOfFeaturesName</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">return a list of all registered features</td>
+</tr>
+<tr>
+<td style="text-align:left">getNumberOfFeatures</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>number</code></td>
+<td style="text-align:left">return total number of registerd features</td>
+</tr>
+<tr>
+<td style="text-align:left">extractfeaturesRaw</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">calculate and return a raw of features value</td>
+</tr>
+<tr>
+<td style="text-align:left">registerAFeature</td>
+<td style="text-align:left"><code>function</code></td>
+<td style="text-align:left"><code>undefined</code></td>
+<td style="text-align:left">register a feature in to feature list</td>
+</tr>
+<tr>
+<td style="text-align:left">registerFeaturesList</td>
+<td style="text-align:left"><code>object</code></td>
+<td style="text-align:left"><code>undefined</code></td>
+<td style="text-align:left">register a list of features to feature list</td>
+</tr>
+</tbody>
+</table>
+<h3>Anatomy of project</h3>
+<p>There's Babel used to build this package, Jest used for test,
+yargs for command line application and fs uesd for manage files.</p>
+<h2>Contribution</h2>
+<h3>How to help with develop</h3>
+<ol>
+<li>Fork</li>
+<li>Make a change</li>
+<li>Request a merge!</li>
+<li>And for maintaining this project, if anyone are available and intrested please contact me to be a maintainer!</li>
+</ol>
+<h2>Contact us</h2>
+<p>Don't hesitate to contact me about this project<br>
+<a href="https://github.com/easa">me on github</a><br>
+<a href="https://t.me/eisanodehi">me on telegram</a></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#extractfeaturesRaw">extractfeaturesRaw</a></li><li><a href="global.html#getListOfFeaturesName">getListOfFeaturesName</a></li><li><a href="global.html#getNumberOfFeatures">getNumberOfFeatures</a></li><li><a href="global.html#registerAFeature">registerAFeature</a></li><li><a href="global.html#registerFeaturesList">registerFeaturesList</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Tue Jul 07 2020 16:06:34 GMT+0430 (Iran Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
-import featureExtractorHandler from '../extractor'
-import filehandler from '../fileHandler'
+import {featureExtractorHandler, registerFeaturesList, getListOfFeaturesName} from '../index'
+import filehandler from '..//lib/fileHandler'
 require('yargs')
   .middleware(argv => {
     argv.app = featureExtractorHandler
