@@ -1,6 +1,6 @@
 {
   "name": "extatistic",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Perform statistical models on any text and extract specific features",
   "main": "index.js",
   "bin": {
@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "cross-env ENV=test jest",
-    "build": "babel . --out-dir dist",
+    "prebuild": "babel . --out-dir predist",
+    "build": "webpack predist/index.js -o dist/index.js -p && webpack predist/bin/cli.js -o dist/bin/cli.js -p",
     "postpublish": "git clean -fd"
   },
   "repository": {
@@ -35,9 +36,12 @@
     "@babel/preset-env": "^7.8.4",
     "babel-jest": "^25.1.0",
     "cross-env": "^7.0.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "node-excel-export": "^1.4.4",
     "yargs": "^15.1.0"
   }
 }
