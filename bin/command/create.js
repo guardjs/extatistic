@@ -1,8 +1,6 @@
-
-
-import fs from 'fs'
-
-exports.command = ['create-feature']
+const fs = require('fs')
+const path = require('path')
+exports.command = ['create', 'create-feature']
 exports.desc = 'create a feature file'
 exports.builder = (arg) => {
   arg.positional('featureName', {
@@ -12,11 +10,7 @@ exports.builder = (arg) => {
     describe: 'The name of the new feature',
   })
 }
-exports.handler = argv => {
-
-}
-
-
+exports.handler = argv => { console.log('hi--------------------------') }
 function createFile() {
   fs.readFile('./newFeature.sample', function read(err, data) {
     if (err) {

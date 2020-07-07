@@ -1,11 +1,12 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
-import {featureExtractorHandler, registerFeaturesList, getListOfFeaturesName} from '../index'
-import filehandler from '..//lib/fileHandler'
+const index = require('../index')
 require('yargs')
   .middleware(argv => {
-    argv.app = featureExtractorHandler
-    argv.file = filehandler
+    const thisPath = argv[1]
+    const node_modulesPath = /^(.*)node_modules/.exec(thisPath) || []
+    argv.basePath = node_modulesPath[1] || __dirname
+    argv.app = index
     return argv
   })
   .commandDir('./command/')

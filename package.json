@@ -8,11 +8,18 @@
   },
   "scripts": {
     "test": "cross-env ENV=test jest",
-    "doc": "jsdoc index.js README.md -d doc -p package.json",
+    "doc": "jsdoc index.js README.md -d docs -p",
     "babel": "babel . --out-dir predist",
-    "prebuild": "npm run babel && npm run doc",
-    "build": "webpack predist/index.js -o dist/index.js -p",
-    "cli": "webpack predist/bin/cli.js -o dist/bin/cli.js -p",
+    "prebabel": "rm ./predist",
+    "postbabel": "cp ./package.json ./predist/package.json",
+    "prebuild": "npm run doc && npm run babel",
+    "webpack": "webpack predist/index.js -o dist/index.js -p",
+    "build": "npm run webpack",
+    "preversion": "npm test && git add . && git commit -m \"version update\"",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags && rm -rf build/temp",
+    "shebang": "sed -i '#! /usr/bin/env node\n' dist/cli.js",
+    "notused becuase it's not a library": "&& webpack predist/bin/cli.js -o dist/bin/cli.js -p && npm run shebang",
     "postpublish": "git clean -fd"
   },
   "repository": {

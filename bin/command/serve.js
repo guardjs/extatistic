@@ -1,5 +1,3 @@
-
-
 exports.command = ['serve', 'run', 'start', 'extract']
 exports.desc = 'Extract features.'
 exports.builder = (arg) => {

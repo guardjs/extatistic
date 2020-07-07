@@ -1,5 +1,3 @@
-
-
 exports.command = ['count', 'total']
 exports.desc = 'Show total count of registered features.'
 exports.builder = {}

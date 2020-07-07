@@ -1,5 +1,3 @@
-
-
 exports.command = ['list', 'features']
 exports.desc = 'Show a list of registered features.'
 exports.builder = {}
