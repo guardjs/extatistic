@@ -1,26 +1,22 @@
 {
   "name": "extatistic",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "Perform statistical models on any text and extract specific features",
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {
-    "extract": "bin/cli.js"
+    "extatistic": "bin/cli.js",
+    "easa": "bin/cli.js"
   },
   "scripts": {
     "test": "cross-env ENV=test jest",
-    "doc": "jsdoc index.js README.md -d docs -p",
-    "babel": "babel . --out-dir predist",
-    "prebabel": "rm ./predist",
-    "postbabel": "cp ./package.json ./predist/package.json",
+    "doc": "jsdoc lib/index.js README.md -d docs -p",
+    "babel": "babel ./lib/ --out-dir predist",
     "prebuild": "npm run doc && npm run babel",
-    "webpack": "webpack predist/index.js -o dist/index.js -p",
-    "build": "npm run webpack",
+    "build": "webpack predist/index.js -o index.js -p",
     "commit": "git add . && git commit -m \"version update\"",
-    "preversion": "npm test",
+    "preversion": "",
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags && rm -rf build/temp",
-    "shebang": "sed -i '#! /usr/bin/env node\n' dist/cli.js",
-    "notused becuase it's not a library": "&& webpack predist/bin/cli.js -o dist/bin/cli.js -p && npm run shebang",
     "postpublish": "git clean -fd"
   },
   "repository": {

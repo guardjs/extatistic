@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const index = require('../index')
+const index = require('../predist')
 require('yargs')
   .middleware(argv => {
     const thisPath = argv[1]

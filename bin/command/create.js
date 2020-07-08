@@ -10,23 +10,13 @@ exports.builder = (arg) => {
     describe: 'The name of the new feature',
   })
 }
-exports.handler = argv => { console.log('hi--------------------------') }
-function createFile() {
-  fs.readFile('./newFeature.sample', function read(err, data) {
-    if (err) {
-      throw err;
-    }
-    const content = data;
-
-    // Invoke the next step here however you like
-    console.log(content);   // Put all of the code here (not the best solution)
-    processFile(content);   // Or put the next step in a function and invoke it
-  })
-  argv.featureName
-  fs.writeFile(`${__dirname}/${featureName}.js`, "Hey there!", function (err) {
-    if (err) {
-      return console.log(err);
-    }
-    console.log(`${__dirname}/${featureName}.js is created!`);
+exports.handler = argv => {
+  fs.readFile('./template/feature.js', function read(err, data) {
+    if (err) { throw err; }
+    newPath = path.join(argv.base, argv['f'])
+    fs.writeFile(newPath, data, function (err) {
+      if (err) { throw err; }
+      console.log(`NEW FEATURE ADDED: ${newPath}`);
+    })
   })
 }

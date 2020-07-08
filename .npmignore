@@ -1,0 +1,15 @@
+.github
+docs
+lib
+node_modules
+.gitignore
+babel.config.js
+
+report
+reports
+doc
+.vscode
+test
+**.test.js
+**/**.test.js
+app

@@ -16,7 +16,12 @@ if (!process.env["ENV"] || process.env["ENV"].indexOf("test") === -1) {
     "**/*.test.js",
     "babel.config.js",
     "node_modules/",
-    "node_modules/**/*.js"
+    "node_modules/**/*.js",
+    "bin/",
+    "bin/**/*.js",
+    "docs/",
+    "docs/**/*.js",
+    "app"
   ]
 }
 
