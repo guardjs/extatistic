@@ -43,18 +43,18 @@ const nameFeatureRecursive = (name, number = 1) => {
 /**
  * @returns List of the names of features in the feature-set
  */
-export const getListOfFeaturesName = () => featureNames.reduce((res, name) => res += ', ' + name)
+exports.getListOfFeaturesName = () => featureNames.reduce((res, name) => res += ', ' + name)
 
 /**
  * @returns Number of registered features in the feature-set
  */
-export const getNumberOfFeatures = () => featureNames.length
+exports.getNumberOfFeatures = () => featureNames.length
 
 /**
  * @returns Raw of calculated features that are listed in feature-set
  * @param {string} inputString source string [code-string, regular-string]
  */
-export const extractfeaturesRaw = inputString => featureNames.reduce((res, model) =>
+exports.extractfeaturesRaw = inputString => featureNames.reduce((res, model) =>
   res += `${res !== '' ? ', ' : ''}${featuresList[model](inputString)}`
   , '')
 
@@ -62,7 +62,7 @@ export const extractfeaturesRaw = inputString => featureNames.reduce((res, model
   * Add a feature-model to set of features to calculate them on demand
   * @param {function} featureModel a function that caclulates a feature (source-string, token-number)
  */
-export const registerAFeature = featureModel => {
+exports.registerAFeature = featureModel => {
   if (typeof featureModel.name !== 'string')
     throw new Error(errorMessages['anonymous function'])
   const name = nameFeatureRecursive(featureModel.name)
@@ -73,7 +73,7 @@ export const registerAFeature = featureModel => {
   * Add a list of feature-models to set of features to calculate them on demand
   * @param {array} featureModelsList a list of features that
 */
-export const registerFeaturesList = featureModelsList => {
+exports.registerFeaturesList = featureModelsList => {
   featureModelsList.forEach(fm => { registerFeature(featuresList, fm) })
 }
 </code></pre>

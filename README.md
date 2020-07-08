@@ -8,7 +8,13 @@ This app extracts features from a source string.
 This project is part of the [Guardjs](https://guardjs.github.io) organization that used to extract features of normal javascript source code. **Github repository: [extatistic](https://github.com/guardjs/extatistic).**
 It has the capability to easily reduce or increase a feature model to the feature set.
 
-## Usage
+## CLI
+
+`npx easa create --name lengthOfstr.js`  
+To create a new feature named __lengthOfstr.js__. It can provided as a path.
+
+
+## API
 
 There's a sample code to show how to use the code and how it works:
 

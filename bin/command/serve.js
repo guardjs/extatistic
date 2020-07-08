@@ -1,3 +1,5 @@
+var yargonaut = require('yargonaut')
+var chalk = yargonaut.chalk()
 exports.command = ['serve', 'run', 'start', 'extract']
 exports.desc = 'Extract features.'
 exports.builder = (arg) => {
@@ -19,6 +21,8 @@ exports.builder = (arg) => {
   })
 }
 exports.handler = argv => {
+  if (err) { throw chalk.red(err) }
+
   /* TODO:
     if a input string was served do on it otherwise use the files in data folder
     if there's any output then write on file otherwise log on console

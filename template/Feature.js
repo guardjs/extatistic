@@ -1,7 +1,7 @@
-import {
+const {
   useHelperFunctions,
   registerAFeature
-} from 'extatistic'
+} = require('extatistic')
 
 const newFeature = (sourceString) => {
   // There are some utilities to help with calculating
@@ -19,4 +19,4 @@ const newFeature = (sourceString) => {
 // Then you need to call this file on your script, right before extracting function!
 registerAFeature(newFeature)
 // To export and register this feature on other script. More readable!
-export default newFeature 
+module.exports = newFeature 
