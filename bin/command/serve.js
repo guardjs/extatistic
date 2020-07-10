@@ -6,7 +6,7 @@ exports.builder = (arg) => {
   arg.positional('folder', {
     alias: 'f',
     type: 'string',
-    default: './data',
+    // default: './data',
     describe: '[optional] Directory of JS files as input.',
   })
   arg.positional('input', {
@@ -21,12 +21,18 @@ exports.builder = (arg) => {
   })
 }
 exports.handler = argv => {
-  if (err) { throw chalk.red(err) }
-
+  // : serve : get input : get output : get features : 
   /* TODO:
     if a input string was served do on it otherwise use the files in data folder
     if there's any output then write on file otherwise log on console
    */
+  fs.readdir(`${argv.featuredir}`, (err, files) => {
+    if (err) { throw chalk.red(err) }
+    const features = files.map(f => require(path.join(`${argv.featuredir}`, f)))
+    argv.lib.registerFeaturesList(features)
+    const countOfFeatures = argv.lib.getNumberOfFeatures()
+    console.log(chalk.bgBlue(countOfFeatures))
+  })
   if (typeof argv.input === 'string')
     console.log(argv.app.extractfeaturesRaw(argv.input))
   // else if (typeof argv.data === 'string') { }

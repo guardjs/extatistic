@@ -10,10 +10,10 @@ require('yargs')
     argv.way = arg[1]
     argv.there = node_modulesPath[1]
     argv.here = __dirname
-    argv.in = inputDirectories
-    argv.out = outputDirectories
-    argv.fea = featureDirectories
-    argv.app = index
+    argv.inputdir = inputDirectories
+    argv.outputdir = outputDirectories
+    argv.featuredir = featureDirectories
+    argv.lib = index
     return argv
   })
   .commandDir('./command/')

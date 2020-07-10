@@ -7,7 +7,7 @@ const newFeature = (sourceString) => {
   // There are some utilities to help with calculating
   // All are tested and optimon
   // You can see them at the github repository guardjs/extatistic
-  const { getParsedKeywords, getParsedWords } = useHelperFunctions
+  const { getParsedKeywords, getParsedWords } = useHelperFunctions()
   const parsedWords = getParsedWords(sourceString)
   const parsedKeywords = getParsedKeywords(sourceString)
   // Do your calculations here and return the result
