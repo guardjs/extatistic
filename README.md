@@ -13,6 +13,8 @@ It has the capability to easily reduce or increase a feature model to the featur
 `npx easa create --name lengthOfstr.js`  
 To create a new feature named __lengthOfstr.js__. It can provided as a path.
 
+`npx easa list`  
+To get the list of all registered features. If any error be in features there should be shown.
 
 ## API
 
