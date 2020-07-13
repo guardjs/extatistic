@@ -15,11 +15,14 @@ exports.builder = (arg) => {
 }
 exports.handler = argv => {
   // console.log(chalk.bgMagenta(argv.inputdir), chalk.bgBlue(argv.outputdir), chalk.bgRed(argv.featuredir))
-  if (!fs.existsSync(`${argv.featuredir}`)) fs.mkdirSync(`${argv.featuredir}`)
+  argv.featuredir.forEach(fdir => {
+    if (!fs.existsSync(fdir))
+      fs.mkdirSync(fdir)
+  })
   const src = path.join(argv.here, '../template/feature.js')
   const { name, ext } = path.parse(argv.name)
   if (!ext) argv.name += '.js'
-  const dst = path.join(`${argv.featuredir}`, `${argv.name}`)
+  const dst = path.join(argv.featuredir[0], argv.name)
   fs.readFile(src, function read(err, data) {
     if (err) { throw chalk.red(err) }
     data = data.toString().replace(/newFeature/g, name)

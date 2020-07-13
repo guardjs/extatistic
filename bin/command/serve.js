@@ -1,7 +1,9 @@
-var yargonaut = require('yargonaut')
-var chalk = yargonaut.chalk()
-exports.command = ['serve', 'run', 'start', 'extract']
-exports.desc = 'Extract features.'
+const fs = require('fs')
+const path = require('path')
+const yargonaut = require('yargonaut')
+const chalk = yargonaut.chalk()
+exports.command = ['serve', 'run', 'start', 'extract', 'execute']
+exports.desc = 'Execute all features on all source texts.'
 exports.builder = (arg) => {
   arg.positional('folder', {
     alias: 'f',
@@ -21,23 +23,22 @@ exports.builder = (arg) => {
   })
 }
 exports.handler = argv => {
-  // : serve : get input : get output : get features : 
-  /* TODO:
-    if a input string was served do on it otherwise use the files in data folder
-    if there's any output then write on file otherwise log on console
-   */
-  fs.readdir(`${argv.featuredir}`, (err, files) => {
-    if (err) { throw chalk.red(err) }
-    const features = files.map(f => require(path.join(`${argv.featuredir}`, f)))
-    argv.lib.registerFeaturesList(features)
-    const countOfFeatures = argv.lib.getNumberOfFeatures()
-    console.log(chalk.bgBlue(countOfFeatures))
+  argv.featuredir.forEach(featureDirectory => {
+    if (!fs.existsSync(featureDirectory)) return console.log(chalk.red(featureDirectory + " Doesn't exists!"))
+    fs.readdir(featureDirectory, (err, featureList) => {
+      if (err) { throw chalk.red(err) }
+      const features = featureList.map(feature => require(path.join(featureDirectory, feature)))
+      argv.lib.registerFeaturesList(features)
+      argv.inputdir.forEach(inputDirectory => {
+        fs.readdir(inputDirectory, (err, inputList) => {
+          if (err) { throw chalk.red(err) }
+          inputList.forEach(input => {
+            const sourceString = fs.readFileSync(path.join(inputDirectory, input))
+            const CSVRaw = argv.lib.extractfeaturesRaw(sourceString).join(', ')
+            console.log(CSVRaw)
+          })
+        })
+      })
+    })
   })
-  if (typeof argv.input === 'string')
-    console.log(argv.app.extractfeaturesRaw(argv.input))
-  // else if (typeof argv.data === 'string') { }
-  else {
-    // TODO: look for files in folder and extractfeaturesRaw for each file
-    console.log('underconstruction')
-  }
 }

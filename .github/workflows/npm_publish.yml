@@ -1,26 +1,12 @@
-name: Publish NPM Package
+name: publish
 
 on:
   release:
     types: [created]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-      # - run: cp -r ./package/. ./dist/
-      - name: Copy static files to ./dist/
-        run: cp -r ./package.json ./dist/ && cp -r ./LICENSE ./dist/ && cp -r ./README.md ./dist/ 
-
-  publish-npm:
-    needs: build
+  publish:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1

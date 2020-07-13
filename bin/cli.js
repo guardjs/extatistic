@@ -3,7 +3,6 @@ const process = require('process')
 const arg = process.argv
 const { inputDirectories, outputDirectories, featureDirectories } = require('./getConfig')(arg)
 const index = require('../lib')
-
 require('yargs')
   .middleware(argv => {
     const node_modulesPath = /^(.*)node_modules/.exec(arg[1]) || []

@@ -1,20 +1,33 @@
 # extatistic
 
-[![Test][test]][testURL] [![Build][build]][buildURL] [![Publish GPR][gpr]][gprURL] [![Publish NPM][npm]][npmURL] ![version][version]
+[![Test][test]][testURL] [![Publish NPM][npm]][npmURL] ![version][version]
 
-The NPM package to perform statistical models on any text and extract specific features. Link to npm package: [npm/extatistic](https://www.npmjs.com/package/extatistic)
+Perform (statistical) methods on *TEXT*. Extract user defined features. Contains predefined helper functions.
+Analyse any source string (code, statement, quote, html, xml, json, etc).  
 
-This app extracts features from a source string.  
-This project is part of the [Guardjs](https://guardjs.github.io) organization that used to extract features of normal javascript source code. **Github repository: [extatistic](https://github.com/guardjs/extatistic).**
-It has the capability to easily reduce or increase a feature model to the feature set.
+Github repository: [npm/extatistic](https://github.com/guardjs/extatistic)
+| npm package: [npm/extatistic](https://npmjs.com/package/extatistic)
+
+> This project is part of the [Guardjs](https://guardjs.github.io), that used to extract features of normal javascript source code.  
+It has the capability to easily reduce or increase a feature model to the feature set through cli or api.
 
 ## CLI
 
-`npx easa create --name lengthOfstr.js`  
+`npx extatistic create --name lengthOfstr.js`  
 To create a new feature named __lengthOfstr.js__. It can provided as a path.
 
-`npx easa list`  
+`npx extatistic list`  
 To get the list of all registered features. If any error be in features there should be shown.
+```bash
+npx extatistic list > res.csv
+```
+
+`npx extatistic execute`  
+To start executing all features (methods in folder called 'features') on source text (of files in folder called 'input').
+Results willl be saved as a csv file in a folder called 'ouput'.
+```bash
+npx extatistic execute >> res.csv
+```
 
 ## API
 
@@ -54,6 +67,8 @@ The API:
 | registerAFeature      | `function` | `undefined` | register a feature in to feature list        |
 | registerFeaturesList  | `object`   | `undefined` | register a list of features to feature list  |
 
+>> every feature added should return a primitive value, it's important!
+
 ### Anatomy of project
 
 There's Babel used to build this package, Jest used for test,
@@ -74,8 +89,8 @@ Don't hesitate to contact me about this project
 [me on github](https://github.com/easa)  
 [me on telegram](https://t.me/eisanodehi)  
 
-[test]: https://github.com/guardjs/extatistic/workflows/Test%2010.x/badge.svg
-[testURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Test+10.x%22
+[test]: https://github.com/guardjs/extatistic/workflows/test/badge.svg
+[testURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22test%22
 
 [build]: https://github.com/guardjs/extatistic/workflows/Build%2010.x/badge.svg
 [buildURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Build+10.x%22
@@ -83,7 +98,7 @@ Don't hesitate to contact me about this project
 [gpr]: https://github.com/guardjs/extatistic/workflows/Publish%20GPR%20Package/badge.svg
 [gprURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Publish+GPR+Package%22
 
-[npm]: https://github.com/guardjs/extatistic/workflows/Publish%20NPM%20Package/badge.svg
-[npmURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22Publish+NPM+Package%22
+[npm]: https://github.com/guardjs/extatistic/workflows/publish/badge.svg
+[npmURL]: https://github.com/guardjs/extatistic/actions?query=branch%3Amaster+workflow%3A%22publish%22
 
 [version]: https://img.shields.io/github/package-json/v/guardjs/extatistic?color=%23333&label=%E2%80%8C&logo=github&logoColor=%23b5b5b5&style=social
